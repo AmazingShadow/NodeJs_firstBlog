@@ -11,28 +11,31 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // middle ware
 // form
-app.use(express.urlencoded({
-	extended: true
-}));
+app.use(
+    express.urlencoded({
+        extended: true,
+    }),
+);
 
 // other
 app.use(express.json());
-
 
 // Http logger
 // app.use(morgan('combined'));
 
 // Template egine
-app.engine('hbs', handlebars.engine({
-	extname: ".hbs"
-}));
-app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname, 'resources/views'));
+app.engine(
+    'hbs',
+    handlebars.engine({
+        extname: '.hbs',
+    }),
+);
+					app.set('view engine', 'hbs');
+					app.set('views', path.join(__dirname, 'resources/views'));
 
 // routes init
-route(app);
-
+						route(app);
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+    console.log(`Example app listening on port ${port}`);
+});
